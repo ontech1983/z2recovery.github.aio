@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>www.z2recovery.com.br — Treino Inteligente & Recuperação de Alta Performance</title>
+  <style>
+    /* Reset & Base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background-color: #0b0f19;
+      color: #e2e8f0;
+      line-height: 1.6;
+    }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header & Navigation */
+    header {
+      background-color: rgba(11, 15, 25, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #1e293b;
+      backdrop-filter: blur(8px);
+    }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 70px;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #00ff88;
+    }
+    .logo span {
+      color: #ffffff;
+    }
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    nav a {
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    nav a:hover {
+      color: #00ff88;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 100px 0 80px;
+      text-align: center;
+      background: radial-gradient(circle at top, #1e293b 0%, #0b0f19 70%);
+    }
+    .hero-badge {
+      display: inline-block;
+      color: #00ff88;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      font-weight: 800;
+    }
+    .hero h1 span {
+      color: #00ff88;
+    }
+    .hero p {
+      max-width: 750px;
+      margin: 0 auto 30px;
+      color: #94a3b8;
+      font-size: 1.1rem;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      display: inline-block;
+      background-color: #00ff88;
+      color: #0b0f19;
+      font-weight: 700;
+      padding: 14px 28px;
+      border-radius: 6px;
+      transition: transform 0.2s, background-color 0.2s;
+    }
+    .btn-primary:hover {
+      background-color: #00cc6d;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      display: inline-block;
+      border: 1px solid #00ff88;
+      color: #00ff88;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+    .btn-secondary:hover {
+      background-color: #00ff88;
+      color: #0b0f19;
+    }
+
+    /* Sections Common */
+    .section {
+      padding: 80px 0;
+      border-bottom: 1px solid #1e293b;
+    }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 800;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: #94a3b8;
+      max-width: 650px;
+      margin: 0 auto 50px;
+    }
+
+    /* Cards Grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background-color: #131b2e;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    .card-tag {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background-color: #00ff88;
+      color: #0b0f19;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 4px;
+      text-transform: uppercase;
+    }
+    .card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+    .card-subtitle {
+      color: #00ff88;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .card-desc {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+    .card-list {
+      list-style: none;
+      margin-bottom: 30px;
+    }
+    .card-list li {
+      margin-bottom: 10px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+    .card-list li span {
+      color: #00ff88;
+      margin-right: 8px;
+    }
+
+    /* Articles Grid */
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    .article-card {
+      background-color: #131b2e;
+      border: 1px solid #1e293b;
+      border-radius: 10px;
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s;
+    }
+    .article-card:hover {
+      border-color: #00ff88;
+    }
+    .article-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+    .article-card p {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    /* Contact Section */
+    .contact-box {
+      background-color: #131b2e;
+      border: 1px solid #1e293b;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .phone {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #00ff88;
+      margin: 15px 0 25px;
+      display: block;
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px 0;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .header-content {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container header-content">
+      <div class="logo">Z2RECOVERY<span>.COM.BR</span></div>
+      <nav>
+        <a href="#home">Início</a>
+        <a href="#liberacao">Liberação Miofascial</a>
+        <a href="#treinamento">Treinamento</a>
+        <a href="#artigos">Artigos</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container">
+      <span class="hero-badge">Constância para Evoluir</span>
+      <h1>Z2 RECOVERY — <span>TREINO INTELIGENTE</span> & RECUPERAÇÃO DE ALTA PERFORMANCE</h1>
+      <p>Potencialize seus resultados no endurance e no treino funcional. Integrando a prescrição individualizada de treino via Intervals.icu à liberação miofascial avançada, aceleramos sua recuperação pós-treino e preparamos seu corpo para atingir novas marcas.</p>
+      <a href="#contato" class="btn-primary">AGENDAR AVALIAÇÃO</a>
+    </div>
+  </section>
+
+  <!-- Liberação Miofascial -->
+  <section id="liberacao" class="section">
+    <div class="container">
+      <h2 class="section-title">PLANOS DE LIBERAÇÃO MIOFASCIAL</h2>
+      <p class="section-subtitle">Acelere a recuperação muscular, elimine pontos de gatilho e mantenha seu corpo pronto para a próxima carga de treino.</p>
+
+      <div class="grid">
+        <!-- Plano Recovery -->
+        <div class="card">
+          <span class="card-tag">Divida com um amigo!</span>
+          <div>
+            <h3>Plano Recovery</h3>
+            <div class="card-subtitle">4 Sessões por Mês</div>
+            <p class="card-desc">Focado na manutenção essencial, alívio de tensões acumuladas, redução da rigidez muscular e otimização do descanso pós-treino.</p>
+            <ul class="card-list">
+              <li><span>✓</span> 4 Sessões de Liberação Miofascial</li>
+              <li><span>✓</span> Possibilidade de partilhar sessões</li>
+              <li><span>✓</span> Alívio de dores e rigidez muscular</li>
+              <li><span>✓</span> Foco em manutenção e regeneração</li>
+            </ul>
+          </div>
+          <a href="#contato" class="btn-primary">AGENDAR PLANO RECOVERY</a>
+        </div>
+
+        <!-- Plano Performance -->
+        <div class="card">
+          <span class="card-tag">Divida com um amigo!</span>
+          <div>
+            <h3>Plano Performance</h3>
+            <div class="card-subtitle">8 Sessões por Mês</div>
+            <p class="card-desc">Acompanhamento intensivo para atletas em alto volume ou intensidade de treino. Redução ativa de pontos de gatilho, ganho de mobilidade e prevenção de lesões.</p>
+            <ul class="card-list">
+              <li><span>✓</span> 8 Sessões de Liberação Miofascial</li>
+              <li><span>✓</span> Possibilidade de partilhar sessões</li>
+              <li><span>✓</span> Desativação de pontos de gatilho</li>
+              <li><span>✓</span> Ganho de mobilidade e flexibilidade</li>
+              <li><span>✓</span> Prevenção ativa contra lesões</li>
+            </ul>
+          </div>
+          <a href="#contato" class="btn-primary">AGENDAR PLANO PERFORMANCE</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Treinamento -->
+  <section id="treinamento" class="section">
+    <div class="container">
+      <h2 class="section-title">PLANOS DE TREINAMENTO PERSONALIZADOS</h2>
+      <p class="section-subtitle">Prescrição e consultoria de treino 100% individualizadas para atender à sua rotina, nível atual e metas de prova.</p>
+
+      <div class="grid">
+        <!-- Plano Endurance Prime -->
+        <div class="card">
+          <div>
+            <h3>Plano Endurance Prime</h3>
+            <p class="card-desc">Ideal para quem busca direcionamento técnico e acompanhamento de métricas para evoluir na modalidade com eficiência.</p>
+            <ul class="card-list">
+              <li><span>✓</span> Planos de treino da modalidade via Intervals.icu</li>
+              <li><span>✓</span> 1 Feedback mensal individualizado</li>
+              <li><span>✓</span> Planilha de treino de força inclusa</li>
+            </ul>
+          </div>
+          <a href="#contato" class="btn-primary">CONSULTAR PLANO ENDURANCE PRIME</a>
+        </div>
+
+        <!-- Plano Evolution Z2 -->
+        <div class="card">
+          <span class="card-tag">Mais Completo</span>
+          <div>
+            <h3>Plano Evolution Z2</h3>
+            <p class="card-desc">A solução definitiva para alta performance, unindo acompanhamento semanal de treino ao suporte de recuperação muscular.</p>
+            <ul class="card-list">
+              <li><span>✓</span> Planos de treino da modalidade via Intervals.icu</li>
+              <li><span>✓</span> <strong>Feedback semanal individualizado</strong></li>
+              <li><span>✓</span> Planilha de treino de força inclusa</li>
+              <li><span>✓</span> Sessão de Liberação Miofascial inclusa</li>
+            </ul>
+          </div>
+          <a href="#contato" class="btn-primary">CONSULTAR PLANO EVOLUTION Z2</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artigos -->
+  <section id="artigos" class="section">
+    <div class="container">
+      <h2 class="section-title">ARTIGOS & CONTEÚDOS</h2>
+      <p class="section-subtitle">Aprofunde seus conhecimentos em fisiologia do exercício, estratégias de recuperação e metodologias de alta performance.</p>
+
+      <div class="articles-grid">
+        <article class="article-card">
+          <h3>Limiares Ventilatórios e o "Por Quê" dos Watts</h3>
+          <p>Entenda a fisiologia por trás do teste incremental, a diferença entre LV1 e LV2 (PCR) e como a identificação dos domínios de intensidade orienta a precisão do seu FTP e da periodização.</p>
+          <a href="#" class="btn-secondary">LER ARTIGO COMPLETO</a>
+        </article>
+
+        <article class="article-card">
+          <h3>Zona 2 e Otimização Mitocondrial</h3>
+          <p>Entenda como o treinamento focado na Zona 2 aprimora a densidade mitocondrial, eleva a eficiência metabólica de oxidação de gorduras e constrói a base aeróbica para provas de longa duração.</p>
+          <a href="#" class="btn-secondary">LER ARTIGO COMPLETO</a>
+        </article>
+
+        <article class="article-card">
+          <h3>Liberação Miofascial na Recuperação Ativa</h3>
+          <p>Como a desativação de pontos de gatilho miofasciais e o ganho de mobilidade reduzem o risco de lesões e aceleram a regeneração muscular após treinos de alta intensidade.</p>
+          <a href="#" class="btn-secondary">LER ARTIGO COMPLETO</a>
+        </article>
+
+        <article class="article-card">
+          <h3>Monitoramento de Carga via Intervals.icu</h3>
+          <p>Aprenda a acompanhar métricas como TSS, fitness (CTL), fadiga (ATL) e forma (TSB) para estruturar polimentos eficientes e evitar o overtraining.</p>
+          <a href="#" class="btn-secondary">LER ARTIGO COMPLETO</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="section">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Pronto para evoluir os seus treinos e manter o seu corpo recuperado?</h2>
+        <p style="color: #94a3b8; margin-top: 10px;">Fale diretamente com a nossa equipe e agende o seu horário ou consultoria.</p>
+        <span class="phone">+55 (35) 99702-6950</span>
+        <a href="https://wa.me/5535997026950" target="_blank" class="btn-primary">FALAR DIRETO NO WHATSAPP</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>© 2026 www.z2recovery.com.br — Assessoria Esportiva. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
